@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <title>Vueのサンプル</title>
+</head>
+<body>
+    <div id="app">
+        {{ message }}
+    </div>
+    <div id="app-2">
+        <span v-bind:title="message">
+            Hover your mouse over me for a few seconds
+            to see my dynamically bound title!
+        </span>
+    </div>
+    <div id="app-3">
+        <p v-if="seen">Now you see me</p>
+    </div>
+    <div id="app-4">
+        <ol>
+            <li v-for="todo in todos">
+                {{ todo.text }}
+            </li>
+        </ol>
+    </div>
+    <div id="app-5">
+        <p>{{ message }}</p>
+        <button v-on:click="reverseMessage">Reverse Message</button>
+    </div>
+    <div id="app-6">
+        <p>{{ message }}</p>
+        <input v-model="message">
+    </div>
+    <div id="app-7">
+        <ol>
+            <!--
+                todo オブジェクトによって各toto-itemを提供します
+                それは、内容を動的にできるように表します
+                また後述する"key"で各コンポーネントに提供する必要があります
+            -->
+            <todo-item v-for="item in groceryList" v-bind:todo="item"></todo-item>
+        </ol>
+    </div>
+    <hr>
+    <p>2ページ目 Vueインスタンス</p>
+    <div id="example">
+        <p>{{ a }}</p>
+    </div>
+
+    <hr>
+    <p>3ページ目 Vueインスタンス</p>
+    <div id="example3">
+        <p>Original message: "{{ message }}"</p>
+        <p>Computed reversed message: "{{ reversedMessage }}"</p>
+    </div>
+
+    <div id="demo4">{{ dulName }}</div>
+
+    <script src="./sample.js"></script>
+</body>
+</html>
